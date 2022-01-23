@@ -29,7 +29,7 @@ make qemu
 1. `qemu-nox-gdb`を実行
 
 ``` bash
-make qemu-nox-gdb
+make qemu-gdb
 
 *** Now run 'gdb'.
 qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512  -S -gdb tcp::26000
