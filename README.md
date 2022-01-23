@@ -24,6 +24,24 @@ make qemu
 
 参考：[xv6をインストール - 技術メモ](https://shuntavista.jimdofree.com/2017/11/29/xv6%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/)
 
+## デバッグ
+
+1. `qemu-nox-gdb`を実行
+
+``` bash
+make qemu-nox-gdb
+
+*** Now run 'gdb'.
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512  -S -gdb tcp::26000
+```
+
+2. GDBでカーネルにリモート接続
+
+``` bash
+gdb kernel
+target remote localhost:26000
+```
+
 ### ビルド時の出力
 
 ``` bash
